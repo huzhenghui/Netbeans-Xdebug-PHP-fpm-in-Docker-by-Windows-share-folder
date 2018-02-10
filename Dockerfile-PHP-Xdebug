@@ -1,0 +1,6 @@
+FROM php
+
+LABEL maintainer="hu@daonao.com"
+
+RUN	pecl install xdebug && \
+    	docker-php-ext-enable xdebug
