@@ -1,0 +1,22 @@
+version: "3"
+volumes:
+        project-root:
+                external:
+                        name: ${VOLUME_NAME}
+services:
+        php-xdebug:
+                build:
+                        context: .
+                        dockerfile: Dockerfile-PHP-Xdebug
+                ports:
+                        - "80:80"
+                volumes:
+                        - project-root:/Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder
+                command: >
+                        php     -S 0.0.0.0:80
+                                -t /Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder/php/public
+                                -d xdebug.remote_enable=true
+                                -d xdebug.remote_autostart=true
+                                -d xdebug.remote_host=${REMOTE_HOST}
+                                -d xdebug.idekey=${IDEKEY}
+                                index.php
