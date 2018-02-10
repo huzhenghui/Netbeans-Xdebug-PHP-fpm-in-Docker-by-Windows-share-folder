@@ -1,0 +1,22 @@
+version: "3"
+volumes:
+        project-root:
+                external:
+                        name: ${VOLUME_NAME}
+services:
+        web:
+                image: nginx
+                ports:
+                        - "80:80"
+                volumes:
+                        - project-root:/Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder
+                command: >
+                        /bin/bash -c
+                        "cp /Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf &&
+                        nginx -g 'daemon off;'"
+                links:
+                        - php
+        php:
+                image: php:fpm
+                volumes:
+                        - project-root:/Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder
