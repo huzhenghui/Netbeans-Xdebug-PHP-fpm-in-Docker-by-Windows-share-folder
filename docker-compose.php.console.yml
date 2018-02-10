@@ -1,0 +1,14 @@
+version: "3"
+volumes:
+        project-root:
+                external:
+                        name: ${VOLUME_NAME}
+services:
+        php:
+                image: php
+                ports:
+                        - "80:80"
+                volumes:
+                        - project-root:/Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder
+                command: >
+                        php /Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder/php/public/index.php
