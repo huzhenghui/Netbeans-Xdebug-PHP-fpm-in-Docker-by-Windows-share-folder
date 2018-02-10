@@ -6,8 +6,6 @@ volumes:
 services:
         php:
                 image: php
-                ports:
-                        - "80:80"
                 volumes:
                         - project-root:/Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder
                 command: >
