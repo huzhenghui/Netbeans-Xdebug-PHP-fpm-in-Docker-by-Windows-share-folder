@@ -1,7 +1,0 @@
-php:
-        image: php
-        ports:
-                - "80:80"
-        volumes:
-                - ${VOLUME_NAME}:/Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder
-        command: php -S 0.0.0.0:80 -t /Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder/php/public
