@@ -1,0 +1,3 @@
+[submodule "share-windows-folder-to-docker"]
+	path = share-windows-folder-to-docker
+	url = https://github.com/huzhenghui/share-windows-folder-to-docker
