@@ -1,0 +1,20 @@
+version: "3"
+volumes:
+        project-root:
+                external:
+                        name: ${VOLUME_NAME}
+services:
+        php-dotnet:
+                build:
+                        context: .
+                        dockerfile: Dockerfile-PHP-dotnet
+                ports:
+                        - "80:80"
+                volumes:
+                        - project-root:/Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder
+                command: >
+                        /bin/bash -c
+                        "cp -R /Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder/DotNetServer /dev/shm/DotNetServer &&
+                        a=$$(for filename in /Netbeans-Xdebug-PHP-fpm-in-Docker-by-Windows-share-folder/php/public/*; do ln -s $${filename} /dev/shm/DotNetServer/Website/$${filename##*/} ; done;) &&
+                        cd /dev/shm/DotNetServer/Server &&
+                        dotnet run"
