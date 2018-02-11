@@ -1,0 +1,5 @@
+FROM microsoft/dotnet
+
+LABEL maintainer="hu@daonao.com"
+
+RUN	dotnet new -i Peachpie.Templates::*
