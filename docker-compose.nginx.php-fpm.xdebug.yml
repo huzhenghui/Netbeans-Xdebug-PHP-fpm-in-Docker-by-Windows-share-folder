@@ -25,5 +25,5 @@ services:
                 command: >
                         php-fpm -d xdebug.remote_enable=true
                                 -d xdebug.remote_autostart=true
-                                -d xdebug.remote_host=${REMOTE_HOST}
+                                -d xdebug.remote_connect_back=true  
                                 -d xdebug.idekey=${IDEKEY}
